@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BadHomburgBlog.ViewModels.BlogModel>
+
+@{
+    View.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Neues Blog anlegen", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id}) 
+        </td>
+        <td>
+            @item.Title
+        </td>
+    </tr>
+}
+
+</table>
+

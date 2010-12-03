@@ -1,0 +1,17 @@
+﻿@model BadHomburgBlog.ViewModels.BlogModel
+@{
+    View.Title = Model.Title;
+}
+<h2>@Model.Title</h2>
+<p>
+    @Html.ActionLink("Neuen Eintrag anlegen", "Create", "BlogEntry", new { Model.Id}, null)
+    <ol>
+        @foreach (var entry in Model.BlogEntries)
+        {
+            <li>@Html.ActionLink(entry.Title, "Edit", "BlogEntry", new { entry.Id }, null)</li>
+        }
+    </ol>
+</p>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { Model.Id}) | @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,22 @@
+﻿@model BlogModel
+@{
+    View.Title = @Model.Title;
+}
+@* @helper sind statische Funktionen *@
+@helper LinkToEntry(string linkText, BlogEntryModel blogEntry, HtmlHelper htmlHelper)
+{
+    var route = new { date = blogEntry.Date.ToString("yyyyMMdd"), title = blogEntry.Title };    
+    @htmlHelper.RouteLink(linkText, "show", route, new { @class = "blogentry-link" })
+}
+<h2>@Model.Title</h2>
+<h3>Neueste Einträge</h3>
+@foreach (var entry in Model.BlogEntries)
+{
+    <h4>@LinkToEntry(entry.Title, entry, Html)</h4>
+    <sup>Von @entry.AuthorName am @entry.Date.ToShortDateString()</sup>
+    <p>@entry.Text.Substring(0, Math.Min(entry.Text.Length, 128))... @LinkToEntry("mehr", entry, Html)</p>
+}
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">
+        http://asp.net/mvc</a>.
+</p>

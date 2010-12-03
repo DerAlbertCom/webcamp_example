@@ -1,0 +1,10 @@
+﻿@model BadHomburgBlog.ViewModels.CommentModel
+
+@using (Html.BeginForm("AddComment","BlogEntry",new {id=ViewData["EntryId"]},FormMethod.Post,null)) {
+    @Html.AntiForgeryToken();
+     @Html.LabelFor(m => m.Name)   @Html.TextBoxFor(m=>m.Name) @Html.ValidationMessageFor(m=>m.Name)<br />
+
+     @Html.LabelFor(m => m.Text)  @Html.ValidationMessageFor(m => m.Text)<br />
+     @Html.TextAreaFor(m => m.Text)<br />
+    <button type="submit">Kommentar absenden</button>
+}

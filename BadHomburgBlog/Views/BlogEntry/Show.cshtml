@@ -1,0 +1,23 @@
+﻿@model BadHomburgBlog.ViewModels.BlogEntryModel
+
+@{
+    View.Title = Model.Title;
+    ViewData["EntryId"]=Model.Id;
+}
+
+<h2>@Model.Title</h2>
+<h3>@Model.Date.ToLongDateString()</h3>
+<p>@Model.Text</p>
+
+<h3>Kommentare</h3>
+@foreach (var comment in Model.Comments)
+{
+        @Html.Partial("ShowComment", comment);
+}
+
+<h3>Kommentar hinzufügen</h3>
+@Html.Partial("AddComment", new BadHomburgBlog.ViewModels.CommentModel())
+
+<p>
+@Html.ActionLink("Eintrag bearbeiten", "Edit", "BlogEntry", new { Model.Id }, null)
+</p>
