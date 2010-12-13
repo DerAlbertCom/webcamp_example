@@ -1,10 +1,10 @@
-﻿using System.Data.Entity.Infrastructure;
+﻿using System.Data.Entity.Database;
 using BadHomburgBlog.DomainModels;
 using BadHomburgBlog.Services;
 
 namespace BadHomburgBlog.Data
 {
-    public class BlogDevelopDbInitializer : RecreateDatabaseIfModelChanges<BlogDbContext>
+    public class BlogDevelopDbInitializer : DropCreateDatabaseIfModelChanges<BlogDbContext>
     {
         protected override void Seed(BlogDbContext context)
         {

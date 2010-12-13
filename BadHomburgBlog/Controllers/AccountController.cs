@@ -79,7 +79,7 @@ namespace BadHomburgBlog.Controllers
 
         public ActionResult Register()
         {
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -103,7 +103,7 @@ namespace BadHomburgBlog.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View(model);
         }
 
@@ -114,7 +114,7 @@ namespace BadHomburgBlog.Controllers
         [Authorize]
         public ActionResult ChangePassword()
         {
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -135,7 +135,7 @@ namespace BadHomburgBlog.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View(model);
         }
 

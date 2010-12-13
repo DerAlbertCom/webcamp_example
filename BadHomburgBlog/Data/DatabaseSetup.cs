@@ -1,4 +1,4 @@
-﻿using System.Data.Entity.Infrastructure;
+﻿using System.Data.Entity.Database;
 
 namespace BadHomburgBlog.Data
 {
@@ -6,8 +6,8 @@ namespace BadHomburgBlog.Data
     {
         public static void Initialize()
         {
-            Database.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
-            Database.SetInitializer(new BlogDevelopDbInitializer());
+            DbDatabase.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
+            DbDatabase.SetInitializer(new BlogDevelopDbInitializer());
         }
     }
 }

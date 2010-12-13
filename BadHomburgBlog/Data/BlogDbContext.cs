@@ -11,7 +11,7 @@ namespace BadHomburgBlog.Data
     {
         public BlogDbContext() : base(GetConnectionString())
         {
-            this.ObjectContext.ContextOptions.LazyLoadingEnabled = true;
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         private static string GetConnectionString()
